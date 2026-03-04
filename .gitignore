@@ -1,0 +1,9 @@
+# Ignore Mac system files
+.DS_Store
+
+# Ignore VS Code settings and workspace data
+.vscode/
+
+# Ignore Dart/Flutter build artifacts (just in case you add them later)
+.dart_tool/
+build/
