@@ -13,6 +13,7 @@ void main() {
   // 2. For-in loop
   // The idiomatic way to iterate over elements in a collection.
   print('\n--- For-in Loop ---');
+  // In Dart, final is a keyword that means "read-only." Once you give a final variable a value, it is locked. You cannot change it later in the code.
   final colors = ['Red', 'Green', 'Blue'];
   for (final color in colors) {
     print('Color: $color');
@@ -26,6 +27,8 @@ void main() {
   print('\n--- CHALLENGE ---');
   print('Try modifying this file to print only even numbers from 1 to 10!');
   for (var i = 1; i <= 10; i++) {
-    print('Number $i');
+    if (i % 2 == 0) {
+      print('Number $i');
+    }
   }
 }
