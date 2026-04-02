@@ -46,6 +46,8 @@ T getNumber<T extends num>({required num limit, required String prompt}) {
     var parsed = num.tryParse(input);
 
     // 2. check if the parsed number is the type we want
+    // This is the "magic" line. It checks if the number the user typed matches the type you asked for.
+    // If you called getNumber<int>, then T is int. If the user typed "10.5", parsed is a double. Since a double is not an int, this check fails, and the code moves to the error message.
     if (parsed is T) {
       if (parsed > 0 && parsed <= limit) {
         value = parsed;
