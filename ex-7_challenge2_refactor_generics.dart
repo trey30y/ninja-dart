@@ -74,10 +74,10 @@ String getTitle() {
   return title.trim();
 }
 
-bool isEBook() {
+bool isEBook({required int bookNumber}) {
   String? answer;
   do {
-    stdout.write("ebook? y/n only: ");
+    stdout.write("Is book ${bookNumber} an ebook? y/n only: ");
     answer = stdin.readLineSync()?.trim();
     if (answer != null) {
       if (answer.toLowerCase() == "y") {
@@ -93,38 +93,26 @@ bool isEBook() {
 
 void main() {
   List<Book> library = [];
-  // input the number of books between 1 and 10
-  var numBooks = getNumber(
-    limit: 10,
-    prompt: "How many books between 1 and 10: ",
-  );
+  // Need an int for book count?
+  int numBooks = getNumber<int>(limit: 10, prompt: "How many books: ");
+
   for (var i = 0; i < numBooks; i++) {
-    bool ebook = isEBook();
+    bool ebook = isEBook(bookNumber: i + 1);
+    // Need an int for pages?
+    int pages = getNumber<int>(
+      limit: 5000,
+      prompt: "Enter pages for book ${i + 1}: ",
+    );
+    String title = getTitle();
     if (ebook) {
-      library.add(
-        Ebook(
-          title: getTitle(),
-          pages: getNumber(
-            limit: 5000,
-            prompt: "How many pages between1 and 5000: ",
-          ),
-          // In your code, your fileSize property was likely throwing an error because getInputNumber returns an int. Since the Ebook constructor expects a double, you have to convert it on the fly.
-          fileSize: getNumber(
-            limit: 512,
-            prompt: "What size in MB? Enter a number between 1 and 512: ",
-          ).toDouble(),
-        ),
+      // Need a double for file size?
+      double size = getNumber<double>(
+        limit: 512.0,
+        prompt: "Enter size in MB for book ${i + 1}: ",
       );
+      library.add(Ebook(title: title, pages: pages, fileSize: size));
     } else {
-      library.add(
-        Book(
-          title: getTitle(),
-          pages: getNumber(
-            limit: 5000,
-            prompt: "How many pages between1 and 5000:",
-          ),
-        ),
-      );
+      library.add(Book(title: title, pages: pages));
     }
   }
 
