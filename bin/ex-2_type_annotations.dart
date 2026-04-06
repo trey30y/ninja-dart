@@ -19,6 +19,6 @@ void main() {
 
   int point;
   // print(point); - null safety error
-  int? another_point;
-  print(another_point); // null
+  int? anotherPoint;
+  print(anotherPoint); // null
 }

@@ -8,7 +8,7 @@ class Book {
 
   // methods
   void desc() {
-    print("The book \'${this.title}\' has ${this.pages} pages");
+    print("The book '${title}' has ${pages} pages");
   }
 }
 

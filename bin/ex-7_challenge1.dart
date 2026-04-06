@@ -15,7 +15,7 @@ class Book {
   Book({required this.title, required this.pages});
 
   void desc() {
-    print("Book ${this.title} has ${this.pages} pages");
+    print("Book ${title} has ${pages} pages");
   }
 }
 
@@ -32,9 +32,9 @@ int getNum({required String kind}) {
   }
   while (num == null || num <= 0 || num > limit) {
     if (kind == "numOfBooks") {
-      stdout.write("Write a positive number of books below ${limit}: ");
+      stdout.write("Write a positive number of books below $limit: ");
     } else {
-      stdout.write("Write a positive number of pages below ${limit}: ");
+      stdout.write("Write a positive number of pages below $limit: ");
     }
     // read the line, the '?' is because the user might send nothing(null)
     String? input = stdin.readLineSync();
@@ -69,7 +69,7 @@ void main() {
     bookList.add(Book(title: title ?? "unknown title", pages: numOfPages));
   }
   // print the booklist
-  bookList.forEach((book) {
+  for (var book in bookList) {
     print("${book.title} has ${book.pages} pages");
-  });
+  }
 }

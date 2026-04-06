@@ -35,9 +35,9 @@ class Pizza extends MenuItem {
   @override
   String format() {
     var formattedToppings = "Contains: ";
-    toppings.forEach(
-      (topping) => formattedToppings = "$formattedToppings $topping",
-    );
+    for (var topping in toppings) {
+      formattedToppings = "$formattedToppings $topping";
+    }
     return '$title --> $price \n$formattedToppings';
   }
 

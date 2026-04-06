@@ -7,7 +7,7 @@ void main() {
   // 2. .map() transforms them
   // 1. Filter it to keep only the High Scores (greater than 60).
   // 2. Transform those numbers into a String that says "Top Score: X".
-  print(rawScores.where((s) => s > 60).map((s) => "Top score: ${s}"));
+  print(rawScores.where((s) => s > 60).map((s) => "Top score: $s"));
 
   // Can you write a chain that:
   // Filters for names that start with 'm'? (Hint: name.startsWith('m'))

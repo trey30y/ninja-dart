@@ -22,7 +22,9 @@ void main() {
   // 3. forEach method
   // A functional approach often used with collection literals or streams.
   print('\n--- .forEach() Method ---');
-  colors.forEach((color) => print('Functional Color: $color'));
+  for (var color in colors) {
+    print('Functional Color: $color');
+  }
 
   print('\n--- CHALLENGE ---');
   print('Try modifying this file to print only even numbers from 1 to 10!');

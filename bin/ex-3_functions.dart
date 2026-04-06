@@ -2,8 +2,8 @@ void main() {
   // you are telling Dart: "I’m going to run this function once, grab the result, and lock it into this variable forever. Don't let me (or anyone else) change it later."
   final greeting = greet("mario", 34);
   print(greeting);
-  final say_goodbye = goodbye(name: "luigi", surname: "Gianluca");
-  print(say_goodbye);
+  final sayGoodbye = goodbye(name: "luigi", surname: "Gianluca");
+  print(sayGoodbye);
 }
 
 // positional arguments

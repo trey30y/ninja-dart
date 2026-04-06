@@ -13,7 +13,7 @@ class Book {
   Book({required this.title, required this.pages});
 
   String desc() {
-    return "${this.title} has ${this.pages} pages.";
+    return "${title} has ${pages} pages.";
   }
 
   @override
@@ -29,7 +29,7 @@ class Ebook extends Book {
 
   @override
   String desc() {
-    return "${super.desc()} and ${this.fileSize}MB.";
+    return "${super.desc()} and ${fileSize}MB.";
   }
 }
 
@@ -79,7 +79,7 @@ String getTitle() {
 bool isEBook({required int bookNumber}) {
   String? answer;
   do {
-    stdout.write("Is book ${bookNumber} an ebook? y/n only: ");
+    stdout.write("Is book $bookNumber an ebook? y/n only: ");
     answer = stdin.readLineSync()?.trim();
     if (answer != null) {
       if (answer.toLowerCase() == "y") {
@@ -119,5 +119,7 @@ void main() {
   }
 
   print("Library contains: ");
-  library.forEach((book) => print(book));
+  for (var book in library) {
+    print(book);
+  }
 }
